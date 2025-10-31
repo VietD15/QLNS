@@ -4,7 +4,7 @@
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
                 <div class="col mx-auto">
                     <div class="my-4 text-center">
-                        <img src="https://dzfullstack.com/assets/images/logo-img.png" width="180" alt="" />
+                        <!-- <img src="https://dzfullstack.com/assets/images/logo-img.png" width="180" alt="" /> -->
                     </div>
                     <div class="card">
                         <div class="card-body">
@@ -36,7 +36,7 @@
                                                     class="form-control border-end-0">
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <!-- <div class="col-12">
                                             <label class="form-label">Recapcha</label>
                                             <div class="input-group">
                                                 <div class="g-recaptcha"
@@ -44,7 +44,7 @@
                                                     ref="recaptcha">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-12">
                                             <div class="d-grid">
                                                 <button v-on:click="login()" type="button" class="btn btn-primary"><i
@@ -75,25 +75,44 @@ export default {
 
     },
     methods: {
+        // login() {
+        //     var code = grecaptcha.getResponse();
+        //     if (!code) {
+        //         this.$toast.error('Bạn chưa chọn mã capcha');
+        //     } else {
+        //         this.tk.ma_capcha = code;
+        //         axios
+        //             .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.tk)
+        //             .then((res) => {
+        //                 if (res.data.status) {
+        //                     this.$toast.success(res.data.message);
+        //                     localStorage.setItem('tk_nhan_vien', res.data.token);
+        //                     this.$router.push('/admin/nhan-vien');
+        //                 } else {
+        //                     this.$toast.error(res.data.message);
+        //                 }
+        //             });
+        //     }
+        // }
         login() {
-            var code = grecaptcha.getResponse();
-            if (!code) {
-                this.$toast.error('Bạn chưa chọn mã capcha');
-            } else {
-                this.tk.ma_capcha = code;
-                axios
-                    .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.tk)
-                    .then((res) => {
-                        if (res.data.status) {
-                            this.$toast.success(res.data.message);
-                            localStorage.setItem('tk_nhan_vien', res.data.token);
-                            this.$router.push('/admin/nhan-vien');
-                        } else {
-                            this.$toast.error(res.data.message);
-                        }
-                    });
-            }
+            // nếu bạn có validate frontend thì giữ, còn không thì gửi trực tiếp
+            axios
+                .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.tk)
+                .then((res) => {
+                    if (res.data.status) {
+                        this.$toast.success(res.data.message);
+                        localStorage.setItem('tk_nhan_vien', res.data.token);
+                        this.$router.push('/admin/nhan-vien');
+                    } else {
+                        this.$toast.error(res.data.message);
+                    }
+                })
+                .catch(err => {
+                    this.$toast.error('Lỗi đăng nhập');
+                    console.error(err);
+                });
         }
+
 
     }
 }

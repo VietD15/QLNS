@@ -8,15 +8,17 @@
                 </div>
                 <div class="card-body">
                     <label class="form-lable">Tên Chức Vụ</label>
-                    <input v-model="create_chuc_vu.ten_chuc_vu" class="form-control mt-1" type="text">
+                    <input v-model="create_chuc_vu.ten_chuc_vu" id="input-ten-chuc-vu" class="form-control mt-1"
+                        type="text">
                     <label class="form-lable mt-2"> Tình Trạng</label>
-                    <select v-model="create_chuc_vu.tinh_trang" class="form-control">
+                    <select v-model="create_chuc_vu.tinh_trang" id="select-tinh-trang" class="form-control">
                         <option value="1">Hiển Thị</option>
                         <option value="0">Tạm Dừng</option>
                     </select>
                 </div>
                 <div class="card-footer text-end">
-                    <button @click="createChucVu()" class="btn btn-primary">Thêm Mới Chức Vụ</button>
+                    <button @click="createChucVu()" id="btn-them-chuc-vu" class="btn btn-primary">Thêm Mới Chức
+                        Vụ</button>
                 </div>
             </div>
         </div>
@@ -55,10 +57,10 @@
                                         </td>
                                         <td class="text-center align-middle text-nowrap">
                                             <button class="btn btn-info me-2" data-bs-toggle="modal"
-                                                v-on:click="Object.assign(edit_chuc_vu, v)"
+                                                id="btn-open-edit-modal" v-on:click="Object.assign(edit_chuc_vu, v)"
                                                 data-bs-target="#editModal">Cập Nhật</button>
                                             <button class="btn btn-danger" data-bs-toggle="modal"
-                                                v-on:click="Object.assign(delete_chuc_vu, v)"
+                                                id="btn-open-delete-modal" v-on:click="Object.assign(delete_chuc_vu, v)"
                                                 data-bs-target="#deleteModal">Xóa Bỏ</button>
                                         </td>
                                     </tr>
@@ -85,7 +87,7 @@
                                         <div class="ms-1">
                                             <h6 class="mb-1 text-white">Bạn chắc chắc xóa chức vụ <b>{{
                                                 delete_chuc_vu.ten_chuc_vu
-                                            }}</b> này chứ
+                                                    }}</b> này chứ
                                                 !!!</h6>
                                             <div class="text-white text-nowrap"><b>LƯU Ý !!!</b> Điều này không thể khôi
                                                 phục
@@ -97,9 +99,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                <button @click="xoaChucVu()" type="button" class="btn btn-danger"
-                                    data-bs-dismiss="modal">Xác
-                                    Nhận</button>
+                                <button @click="xoaChucVu()" id="btn-xoa-chuc-vu" type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Xác Nhận</button>
                             </div>
                         </div>
                     </div>
@@ -117,18 +118,19 @@
                             </div>
                             <div class="modal-body">
                                 <label class="form-lable">Tên Chức Vụ</label>
-                                <input v-model="edit_chuc_vu.ten_chuc_vu" class="form-control mt-1" type="text">
+                                <input v-model="edit_chuc_vu.ten_chuc_vu" class="form-control mt-1"
+                                    id="input-edit-ten-chuc-vu" type="text">
                                 <label class="form-lable mt-2"> Tình Trạng</label>
-                                <select v-model="edit_chuc_vu.tinh_trang" class="form-control">
+                                <select v-model="edit_chuc_vu.tinh_trang" id="select-edit-tinh-trang"
+                                    class="form-control">
                                     <option value="1">Hiển Thị</option>
                                     <option value="0">Tạm Dừng</option>
                                 </select>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                <button @click="capNhatChucVu()" type="button" class="btn btn-primary"
-                                    data-bs-dismiss="modal">Xác
-                                    Nhận</button>
+                                <button @click="capNhatChucVu()" id="btn-cap-nhat-chuc-vu" type="button"
+                                    class="btn btn-primary" data-bs-dismiss="modal">Xác Nhận</button>
                             </div>
                         </div>
                     </div>
@@ -244,7 +246,7 @@ export default {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);
                         this.loadChucVu();
-                    }  else {
+                    } else {
                         this.$toast.error(res.data.message);
                     }
 

@@ -212,8 +212,8 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/loai-hop-dong/xuat-excel', {
-                    responseType: 'blob',
+                .get('http://127.0.0.1:8000/api/admin/loai-hop-dong/xuat-excel',{
+                    responseType: 'blob', 
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

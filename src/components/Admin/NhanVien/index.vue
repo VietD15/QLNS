@@ -8,7 +8,7 @@
                         <button @click="xuatExcel()" type="button" class="btn btn-success me-2">
                             <i class="fa-regular fa-file-excel"></i> Xuất Excel
                         </button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        <button id="open-add-modal"  type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             Thêm Mới
                         </button>
@@ -16,13 +16,13 @@
                 </div>
                 <div class="card-body table-responsive">
                     <div class="input-group mt-3 w-100 mb-3">
-                        <input v-on:keyup.enter="TimKiemBE()" v-model="search.noi_dung" type="text"
+                        <input id="search-input"  v-on:keyup.enter="TimKiemBE()" v-model="search.noi_dung" type="text"
                             class="form-control search-control border border-1 border-secondary"
                             placeholder="Search...">
                         <span class="position-absolute top-50 search-show translate-middle-y" style="left: 15px;"><i
                                 class="bx bx-search"></i></span>
-                        <button v-on:click="TimKiemBE()" class="btn btn-outline-secondary" type="button"
-                            id="button-addon2">Tìm
+                        <button  v-on:click="TimKiemBE()" class="btn btn-outline-secondary" type="button"
+                            id="search-button">Tìm
                             Kiếm</button>
                     </div>
                     <table class="table table-bordered table-hover ">
@@ -36,7 +36,7 @@
                                 <th class="text-center">Địa Chỉ</th>
                                 <th class="text-center">Lương Cơ Bản</th>
                                 <th class="text-center">Chức Vụ</th>
-                                <th class="text-center">Phòng Ban</th>
+                                <!-- <th class="text-center">Phòng Ban</th> -->
                                 <th class="text-center">Tình Trạng</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -52,7 +52,7 @@
                                     <td class="align-middle">{{ v.dia_chi }}</td>
                                     <td class="align-middle text-end">{{ v.luong_co_ban }} đ</td>
                                     <td class="align-middle text-center">{{ v.ten_chuc_vu }}</td>
-                                    <td class="align-middle text-center">{{ v.ten_phong_ban }}</td>
+                                    <!-- <td class="align-middle text-center">{{ v.ten_phong_ban }}</td> -->
                                     <td class="align-middle text-center">
                                         <template v-if="v.is_block == 0">
                                             <button v-on:click="changeStatus(v)" class="btn btn-success w-100">Hoạt
@@ -70,10 +70,10 @@
                                         <button class="btn btn-info me-2" data-bs-toggle="modal"
                                             data-bs-target="#hopDongModal"
                                             v-on:click="Object.assign(create_hop_dong, v)">Tạo Hợp Đồng</button>
-                                        <button class="btn btn-primary me-2" data-bs-toggle="modal"
+                                        <button id="open-edit-modal"  class="btn btn-primary me-2" data-bs-toggle="modal"
                                             data-bs-target="#capnhatDM"
                                             v-on:click="Object.assign(edit_nhan_vien, v)">Cập nhật</button>
-                                        <button class="btn btn-danger" data-bs-toggle="modal"
+                                        <button id="open-delete-modal"  class="btn btn-danger" data-bs-toggle="modal"
                                             v-on:click="Object.assign(delete_nhan_vien, v)"
                                             data-bs-target="#delModal">Xóa</button>
                                     </td>
@@ -94,52 +94,52 @@
                     <div class="modal-body">
                         <div class="mb-2">
                             <label class="form-label">Họ Và Tên</label>
-                            <input v-model="create_nhan_vien.ho_va_ten" type="text" class="form-control">
+                            <input id="add-name" v-model="create_nhan_vien.ho_va_ten" type="text" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Email</label>
-                            <input v-model="create_nhan_vien.email" type="email" class="form-control">
+                            <input  id="add-email" v-model="create_nhan_vien.email" type="email" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Ngày Sinh</label>
-                            <input v-model="create_nhan_vien.ngay_sinh" type="date" class="form-control">
+                            <input id="add-birthday" v-model="create_nhan_vien.ngay_sinh" type="date" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Số Điện Thoại</label>
-                            <input v-model="create_nhan_vien.so_dien_thoai" type="text" class="form-control">
+                            <input id="add-phone" v-model="create_nhan_vien.so_dien_thoai" type="text" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Password</label>
-                            <input v-model="create_nhan_vien.password" type="password" class="form-control">
+                            <input id="add-password" v-model="create_nhan_vien.password" type="password" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Địa Chỉ</label>
-                            <input v-model="create_nhan_vien.dia_chi" type="text" class="form-control">
+                            <input id="add-address" v-model="create_nhan_vien.dia_chi" type="text" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Lương Cơ Bản</label>
-                            <input v-model="create_nhan_vien.luong_co_ban" type="number" class="form-control">
+                            <input id="add-salary" v-model="create_nhan_vien.luong_co_ban" type="number" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label>Chức Vụ</label>
-                            <select v-model="create_nhan_vien.id_chuc_vu" class="form-control mt-2">
+                            <select id="add-role" v-model="create_nhan_vien.id_chuc_vu" class="form-control mt-2">
                                 <template v-for="(v, k) in list_chuc_vu" :key="k">
                                     <option v-bind:value="v.id">{{ v.ten_chuc_vu }}</option>
                                 </template>
                             </select>
                         </div>
-                        <div class="mb-2">
+                        <!-- <div class="mb-2">
                             <label>Phòng Ban</label>
-                            <select v-model="create_nhan_vien.id_phong_ban" class="form-control mt-2">
+                            <select id="add-department" v-model="create_nhan_vien.id_phong_ban" class="form-control mt-2">
                                 <template v-for="(v, k) in list_phong_ban" :key="k">
                                     <option v-bind:value="v.id">{{ v.ten_phong_ban }}</option>
                                 </template>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button v-on:click="createNhanVien()" class="btn btn-primary" data-bs-dismiss="modal">Thêm
+                        <button id="add-submit"  v-on:click="createNhanVien()" class="btn btn-primary" data-bs-dismiss="modal">Thêm
                             Mới</button>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        <button id="delete-submit" type="button" class="btn btn-danger" data-bs-dismiss="modal"
                             v-on:click="xoaNhanVien()">Xác
                             nhận</button>
                     </div>
@@ -233,31 +233,31 @@
                     <div class="modal-body">
                         <div class="mb-2">
                             <label class="form-label">Họ Và Tên</label>
-                            <input v-model="edit_nhan_vien.ho_va_ten" type="text" class="form-control">
+                            <input id="edit-name" v-model="edit_nhan_vien.ho_va_ten" type="text" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Email</label>
-                            <input v-model="edit_nhan_vien.email" type="email" class="form-control">
+                            <input id="edit-email"  v-model="edit_nhan_vien.email" type="email" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Ngày Sinh</label>
-                            <input v-model="edit_nhan_vien.ngay_sinh" type="date" class="form-control">
+                            <input id="edit-birthday"  v-model="edit_nhan_vien.ngay_sinh" type="date" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Số Điện Thoại</label>
-                            <input v-model="edit_nhan_vien.so_dien_thoai" type="text" class="form-control">
+                            <input id="edit-phone" v-model="edit_nhan_vien.so_dien_thoai" type="text" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Địa Chỉ</label>
-                            <input v-model="edit_nhan_vien.dia_chi" type="text" class="form-control">
+                            <input id="edit-address" v-model="edit_nhan_vien.dia_chi" type="text" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Lương Cơ Bản</label>
-                            <input v-model="edit_nhan_vien.luong_co_ban" type="number" class="form-control">
+                            <input id="edit-salary" v-model="edit_nhan_vien.luong_co_ban" type="number" class="form-control">
                         </div>
                         <div class="mb-2">
                             <label>Chức Vụ</label>
-                            <select v-model="edit_nhan_vien.id_chuc_vu" class="form-control mt-2">
+                            <select id="edit-role" v-model="edit_nhan_vien.id_chuc_vu" class="form-control mt-2">
                                 <template v-for="(v, k) in list_chuc_vu" :key="k">
                                     <option v-bind:value="v.id">{{ v.ten_chuc_vu }}</option>
                                 </template>
@@ -265,7 +265,7 @@
                         </div>
                         <div class="mb-2">
                             <label>Phòng Ban</label>
-                            <select v-model="edit_nhan_vien.id_phong_ban" class="form-control mt-2">
+                            <select id="edit-department"  v-model="edit_nhan_vien.id_phong_ban" class="form-control mt-2">
                                 <template v-for="(v, k) in list_phong_ban" :key="k">
                                     <option v-bind:value="v.id">{{ v.ten_phong_ban }}</option>
                                 </template>
@@ -274,7 +274,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        <button id="edit-submit"  type="button" class="btn btn-primary" data-bs-dismiss="modal"
                             v-on:click="capNhatNhanVien()">Cập
                             nhật</button>
                     </div>
