@@ -128,14 +128,14 @@
                                 </template>
                             </select>
                         </div>
-                        <!-- <div class="mb-2">
+                        <div class="mb-2">
                             <label>Phòng Ban</label>
                             <select id="add-department" v-model="create_nhan_vien.id_phong_ban" class="form-control mt-2">
                                 <template v-for="(v, k) in list_phong_ban" :key="k">
                                     <option v-bind:value="v.id">{{ v.ten_phong_ban }}</option>
                                 </template>
                             </select>
-                        </div> -->
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
