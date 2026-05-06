@@ -10,6 +10,8 @@ console.log("Axios BaseURL configured as:", BE);
 // Set default baseURL for relative axios requests
 axios.defaults.baseURL = BE;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// Skip ngrok browser warning for API requests
+axios.defaults.headers.common['ngrok-skip-browser-warning'] = '1';
 
 // If VITE_API_BASE is set (deployed), rewrite any absolute localhost URLs used in the code
 if (import.meta.env.VITE_API_BASE) {
