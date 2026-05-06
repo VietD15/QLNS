@@ -186,7 +186,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/phong-ban/xuat-excel', {
+                .get('/api/admin/phong-ban/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -206,7 +206,7 @@ export default {
         },
         loadPhongBan() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/phong-ban/data', {
+                .get('/api/admin/phong-ban/data', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -220,7 +220,7 @@ export default {
         },
         createPhongBan() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/phong-ban/create', this.create_phong_ban, {
+                .post('/api/admin/phong-ban/create', this.create_phong_ban, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -243,7 +243,7 @@ export default {
         },
         capNhatPhongBan() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/phong-ban/update', this.edit_phong_ban, {
+                .post('/api/admin/phong-ban/update', this.edit_phong_ban, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -266,7 +266,7 @@ export default {
         },
         xoaPhongBan() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/phong-ban/delete', this.delete_phong_ban, {
+                .post('/api/admin/phong-ban/delete', this.delete_phong_ban, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -289,7 +289,7 @@ export default {
         },
         changeStatus(value) {
             axios
-                .post('http://127.0.0.1:8000/api/admin/phong-ban/change-status', value, {
+                .post('/api/admin/phong-ban/change-status', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

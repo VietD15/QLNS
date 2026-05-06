@@ -157,7 +157,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/chuc-vu/xuat-excel', {
+                .get('/api/admin/chuc-vu/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -177,7 +177,7 @@ export default {
         },
         loadChucVu() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/chuc-vu/data', {
+                .get('/api/admin/chuc-vu/data', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -191,7 +191,7 @@ export default {
         },
         createChucVu() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/chuc-vu/create', this.create_chuc_vu, {
+                .post('/api/admin/chuc-vu/create', this.create_chuc_vu, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -214,7 +214,7 @@ export default {
         },
         capNhatChucVu() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/chuc-vu/update', this.edit_chuc_vu, {
+                .post('/api/admin/chuc-vu/update', this.edit_chuc_vu, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -237,7 +237,7 @@ export default {
         },
         xoaChucVu() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/chuc-vu/delete', this.delete_chuc_vu, {
+                .post('/api/admin/chuc-vu/delete', this.delete_chuc_vu, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -261,7 +261,7 @@ export default {
         },
         changeStatus(value) {
             axios
-                .post('http://127.0.0.1:8000/api/admin/chuc-vu/change-status', value, {
+                .post('/api/admin/chuc-vu/change-status', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

@@ -233,7 +233,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/quy-dinh-cho-diem/xuat-excel', {
+                .get('/api/admin/quy-dinh-cho-diem/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -253,7 +253,7 @@ export default {
         },
         loadQuyDinhChoDiem() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/quy-dinh-cho-diem/data', {
+                .get('/api/admin/quy-dinh-cho-diem/data', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -267,7 +267,7 @@ export default {
         },
         createQuyDinhChoDiem() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/quy-dinh-cho-diem/create', this.create_quy_dinh_cho_diem, {
+                .post('/api/admin/quy-dinh-cho-diem/create', this.create_quy_dinh_cho_diem, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -290,7 +290,7 @@ export default {
         },
         capNhatQuyDinhChoDiem() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/quy-dinh-cho-diem/update', this.edit_quy_dinh_cho_diem, {
+                .post('/api/admin/quy-dinh-cho-diem/update', this.edit_quy_dinh_cho_diem, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -313,7 +313,7 @@ export default {
         },
         xoaQuyDinhChoDiem() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/quy-dinh-cho-diem/delete', this.delete_quy_dinh_cho_diem, {
+                .post('/api/admin/quy-dinh-cho-diem/delete', this.delete_quy_dinh_cho_diem, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -336,7 +336,7 @@ export default {
         },
         changeStatus(value) {
             axios
-                .post('http://127.0.0.1:8000/api/admin/quy-dinh-cho-diem/change-status', value, {
+                .post('/api/admin/quy-dinh-cho-diem/change-status', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

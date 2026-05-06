@@ -84,7 +84,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/luong-theo-thang/xuat-excel', {}, {
+                .post('/api/admin/luong-theo-thang/xuat-excel', {}, {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -104,7 +104,7 @@ export default {
         },
         tinhLuong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/tinh-luong-4', this.tinh_luong, {
+                .post('/api/admin/tinh-luong-4', this.tinh_luong, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

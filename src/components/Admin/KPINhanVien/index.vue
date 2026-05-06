@@ -237,7 +237,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/kpi-nhan-vien/xuat-excel', {
+                .get('/api/admin/kpi-nhan-vien/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -257,7 +257,7 @@ export default {
         },
         loadDataNhanVien() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/nhan-vien/data-open", {
+                .get("/api/admin/nhan-vien/data-open", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -268,7 +268,7 @@ export default {
         },
         loadDataKpi() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/tieu-chi-kpi/data-open", {
+                .get("/api/admin/tieu-chi-kpi/data-open", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -279,7 +279,7 @@ export default {
         },
         loadDataKpiNhanVien() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/kpi-nhan-vien/data", {
+                .get("/api/admin/kpi-nhan-vien/data", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -293,7 +293,7 @@ export default {
         },
         themMoi() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/kpi-nhan-vien/create', this.create, {
+                .post('/api/admin/kpi-nhan-vien/create', this.create, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -317,7 +317,7 @@ export default {
         },
         upDateKpiNhanVien() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/kpi-nhan-vien/update', this.update, {
+                .post('/api/admin/kpi-nhan-vien/update', this.update, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -340,7 +340,7 @@ export default {
         },
         chamDiemKpiNhanVien() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/kpi-nhan-vien/cham-diem', this.update, {
+                .post('/api/admin/kpi-nhan-vien/cham-diem', this.update, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -363,7 +363,7 @@ export default {
         },
         xoaDiemKpiNhanVien() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/kpi-nhan-vien/delete', this.del, {
+                .post('/api/admin/kpi-nhan-vien/delete', this.del, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -387,7 +387,7 @@ export default {
         },
         TimKiemKpiNhanVien() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/kpi-nhan-vien/tim-kiem', this.search, {
+                .post('/api/admin/kpi-nhan-vien/tim-kiem', this.search, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

@@ -386,7 +386,7 @@ export default {
         removeQuyen(value) {
             value.id_nhan_vien = this.phan_quyen_nhan_vien.id
             axios
-                .post('http://127.0.0.1:8000/api/admin/phan-quyen/delete', value, {
+                .post('/api/admin/phan-quyen/delete', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -409,7 +409,7 @@ export default {
         setQuyen(value) {
             value.id_nhan_vien = this.phan_quyen_nhan_vien.id
             axios
-                .post('http://127.0.0.1:8000/api/admin/phan-quyen/create', value, {
+                .post('/api/admin/phan-quyen/create', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -432,7 +432,7 @@ export default {
         loadChucNang(value) {
             this.phan_quyen_nhan_vien = value;
             axios
-                .post('http://127.0.0.1:8000/api/admin/chuc-nang/data', this.phan_quyen_nhan_vien, {
+                .post('/api/admin/chuc-nang/data', this.phan_quyen_nhan_vien, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -446,7 +446,7 @@ export default {
         },
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/nhan-vien/xuat-excel', {
+                .get('/api/admin/nhan-vien/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -473,7 +473,7 @@ export default {
         },
         taoHopDong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/chi-tiet-hop-dong/create', this.create_hop_dong, {
+                .post('/api/admin/chi-tiet-hop-dong/create', this.create_hop_dong, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -495,7 +495,7 @@ export default {
         },
         TimKiemBE() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/nhan-vien/tim-kiem', this.search, {
+                .post('/api/admin/nhan-vien/tim-kiem', this.search, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -515,7 +515,7 @@ export default {
         },
         loadHopDong() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/loai-hop-dong/data-open', {
+                .get('/api/admin/loai-hop-dong/data-open', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -526,7 +526,7 @@ export default {
         },
         loadNhanVien() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/nhan-vien/data', {
+                .get('/api/admin/nhan-vien/data', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -540,7 +540,7 @@ export default {
         },
         loadChucVu() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/chuc-vu/data-open', {
+                .get('/api/admin/chuc-vu/data-open', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -554,7 +554,7 @@ export default {
         },
         loadPhongBan() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/phong-ban/data-open', {
+                .get('/api/admin/phong-ban/data-open', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -568,7 +568,7 @@ export default {
         },
         createNhanVien() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/nhan-vien/create', this.create_nhan_vien, {
+                .post('/api/admin/nhan-vien/create', this.create_nhan_vien, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -591,7 +591,7 @@ export default {
         },
         capNhatNhanVien() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/nhan-vien/update', this.edit_nhan_vien, {
+                .post('/api/admin/nhan-vien/update', this.edit_nhan_vien, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -614,7 +614,7 @@ export default {
         },
         xoaNhanVien() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/nhan-vien/delete', this.delete_nhan_vien, {
+                .post('/api/admin/nhan-vien/delete', this.delete_nhan_vien, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -637,7 +637,7 @@ export default {
         },
         changeStatus(value) {
             axios
-                .post('http://127.0.0.1:8000/api/admin/nhan-vien/change-status', value, {
+                .post('/api/admin/nhan-vien/change-status', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

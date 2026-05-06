@@ -176,7 +176,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/tieu-chi-kpi/xuat-excel', {
+                .get('/api/admin/tieu-chi-kpi/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -196,7 +196,7 @@ export default {
         },
         loadTieuChiKPI() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/tieu-chi-kpi/data', {
+                .get('/api/admin/tieu-chi-kpi/data', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -210,7 +210,7 @@ export default {
         },
         createTieuChiKPI() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/tieu-chi-kpi/create', this.create_tieu_chi_kpi, {
+                .post('/api/admin/tieu-chi-kpi/create', this.create_tieu_chi_kpi, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -233,7 +233,7 @@ export default {
         },
         capNhatTieuChiKPI() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/tieu-chi-kpi/update', this.edit_tieu_chi_kpi, {
+                .post('/api/admin/tieu-chi-kpi/update', this.edit_tieu_chi_kpi, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -256,7 +256,7 @@ export default {
         },
         xoaTieuChiKPI() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/tieu-chi-kpi/delete', this.delete_tieu_chi_kpi, {
+                .post('/api/admin/tieu-chi-kpi/delete', this.delete_tieu_chi_kpi, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -279,7 +279,7 @@ export default {
         },
         changeStatus(value) {
             axios
-                .post('http://127.0.0.1:8000/api/admin/tieu-chi-kpi/change-status', value, {
+                .post('/api/admin/tieu-chi-kpi/change-status', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

@@ -312,18 +312,21 @@ export default {
     methods: {
         loadThongBao() {
             axios
-                .post("http://127.0.0.1:8000/api/admin/thong-bao/data", {}, {
+                .post("/api/admin/thong-bao/data", {}, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
                 })
                 .then((res) => {
                     this.list = res.data.data;
+                })
+                .catch((err) => {
+                    console.error("Load thong bao failed:", err);
                 });
         },
         dangXuat() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/dang-xuat", {
+                .get("/api/admin/dang-xuat", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -336,11 +339,14 @@ export default {
                     } else {
                         this.$toast.error(res.data.message);
                     }
+                })
+                .catch((err) => {
+                    console.error("Logout failed:", err);
                 });
         },
         dangXuatAll() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/dang-xuat-all", {
+                .get("/api/admin/dang-xuat-all", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -353,6 +359,9 @@ export default {
                     } else {
                         this.$toast.error(res.data.message);
                     }
+                })
+                .catch((err) => {
+                    console.error("Logout all failed:", err);
                 });
         }
     },

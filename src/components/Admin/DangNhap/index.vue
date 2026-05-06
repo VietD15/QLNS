@@ -82,7 +82,7 @@ export default {
         //     } else {
         //         this.tk.ma_capcha = code;
         //         axios
-        //             .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.tk)
+        //             .post("/api/admin/dang-nhap", this.tk)
         //             .then((res) => {
         //                 if (res.data.status) {
         //                     this.$toast.success(res.data.message);
@@ -97,7 +97,7 @@ export default {
         login() {
             // nếu bạn có validate frontend thì giữ, còn không thì gửi trực tiếp
             axios
-                .post("http://127.0.0.1:8000/api/admin/dang-nhap", this.tk)
+                .post("/api/admin/dang-nhap", this.tk)
                 .then((res) => {
                     if (res.data.status) {
                         this.$toast.success(res.data.message);

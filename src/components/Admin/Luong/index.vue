@@ -93,7 +93,7 @@ export default {
         },
         tinhLuong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/tinh-luong', this.tinh_luong, {
+                .post('/api/admin/tinh-luong', this.tinh_luong, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -107,7 +107,7 @@ export default {
         },
         xuatExcel() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/luong/xuat-excel', this.tinh_luong, {
+                .post('/api/admin/luong/xuat-excel', this.tinh_luong, {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")

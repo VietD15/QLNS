@@ -212,7 +212,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/loai-hop-dong/xuat-excel',{
+                .get('/api/admin/loai-hop-dong/xuat-excel',{
                     responseType: 'blob', 
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -232,7 +232,7 @@ export default {
         },
         loadLoaiHopDong() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/loai-hop-dong/data', {
+                .get('/api/admin/loai-hop-dong/data', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -246,7 +246,7 @@ export default {
         },
         createLoaiHopDong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/loai-hop-dong/create', this.create_loai_hop_dong, {
+                .post('/api/admin/loai-hop-dong/create', this.create_loai_hop_dong, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -269,7 +269,7 @@ export default {
         },
         capNhatLoaiHopDong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/loai-hop-dong/update', this.edit_loai_hop_dong, {
+                .post('/api/admin/loai-hop-dong/update', this.edit_loai_hop_dong, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -292,7 +292,7 @@ export default {
         },
         xoaLoaiHopDong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/loai-hop-dong/delete', this.delete_loai_hop_dong, {
+                .post('/api/admin/loai-hop-dong/delete', this.delete_loai_hop_dong, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -315,7 +315,7 @@ export default {
         },
         changeStatus(value) {
             axios
-                .post('http://127.0.0.1:8000/api/admin/loai-hop-dong/change-status', value, {
+                .post('/api/admin/loai-hop-dong/change-status', value, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

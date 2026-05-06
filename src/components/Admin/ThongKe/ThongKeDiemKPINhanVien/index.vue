@@ -102,7 +102,7 @@ export default {
         thongKe() {
             this.is_load = false
             axios
-                .post('http://127.0.0.1:8000/api/admin/kpi-nhan-vien/thong-ke', this.day, {
+                .post('/api/admin/kpi-nhan-vien/thong-ke', this.day, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

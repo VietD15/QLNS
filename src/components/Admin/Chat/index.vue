@@ -102,7 +102,7 @@ export default {
 
         loadNhanVien() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/nhan-vien/data-open-not-me', {
+                .get('/api/admin/nhan-vien/data-open-not-me', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -116,7 +116,7 @@ export default {
         },
         guiTinNhan() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/chat/create', this.tin_nhan, {
+                .post('/api/admin/chat/create', this.tin_nhan, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -138,7 +138,7 @@ export default {
         xemTinNhan(payload) {
             this.tin_nhan.id = payload.id;
             axios
-                .post('http://127.0.0.1:8000/api/admin/chat/data', payload, {
+                .post('/api/admin/chat/data', payload, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

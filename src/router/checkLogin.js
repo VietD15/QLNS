@@ -1,9 +1,10 @@
 import axios from "axios";
 import { createToaster } from "@meforma/vue-toaster";
 const toaster = createToaster({ position: "top-right" });
+
 export default function (to, from, next) {
   axios
-    .get("http://127.0.0.1:8000/api/admin/check-login", {
+    .get("/api/admin/check-login", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("tk_nhan_vien"),
       },
@@ -15,5 +16,9 @@ export default function (to, from, next) {
         next("/admin/dang-nhap");
         toaster.error(res.data.message);
       }
+    })
+    .catch((err) => {
+      console.error("Auth check failed:", err);
+      next("/admin/dang-nhap");
     });
 }

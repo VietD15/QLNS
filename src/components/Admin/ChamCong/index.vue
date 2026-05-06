@@ -184,7 +184,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/cham-cong/xuat-excel', {
+                .get('/api/admin/cham-cong/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -204,7 +204,7 @@ export default {
         },
         loadDataNhanVien() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/nhan-vien/data-open", {
+                .get("/api/admin/nhan-vien/data-open", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -215,7 +215,7 @@ export default {
         },
         loadDataChamCong() {
             axios
-                .get("http://127.0.0.1:8000/api/admin/cham-cong/data", {
+                .get("/api/admin/cham-cong/data", {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -230,7 +230,7 @@ export default {
 
         themMoi() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/cham-cong/create', this.create, {
+                .post('/api/admin/cham-cong/create', this.create, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -254,7 +254,7 @@ export default {
         },
         updateChamCong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/cham-cong/update', this.update, {
+                .post('/api/admin/cham-cong/update', this.update, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
@@ -277,7 +277,7 @@ export default {
         },
         xoaChamCong() {
             axios
-                .post('http://127.0.0.1:8000/api/admin/cham-cong/delete', this.del, {
+                .post('/api/admin/cham-cong/delete', this.del, {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }

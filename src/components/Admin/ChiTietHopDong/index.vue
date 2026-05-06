@@ -76,7 +76,7 @@ export default {
     methods: {
         xuatExcel() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/chi-tiet-hop-dong/xuat-excel', {
+                .get('/api/admin/chi-tiet-hop-dong/xuat-excel', {
                     responseType: 'blob',
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
@@ -96,7 +96,7 @@ export default {
         },
         loadChiTietHopDong() {
             axios
-                .get('http://127.0.0.1:8000/api/admin/chi-tiet-hop-dong/data', {
+                .get('/api/admin/chi-tiet-hop-dong/data', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem("tk_nhan_vien")
                     }
