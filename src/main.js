@@ -1,10 +1,10 @@
+import './bootstrapAxios';
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import Default from './layout/wrapper/index.vue'
 import Blank from './layout/wrapper/index_blank.vue'
 import Toaster from "@meforma/vue-toaster";
-import './bootstrapAxios';
 
 const app = createApp(App)
 app.use(router)

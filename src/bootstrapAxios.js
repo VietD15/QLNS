@@ -5,6 +5,8 @@ import axios from 'axios';
 const BE_FALLBACK = 'http://127.0.0.1:8000';
 const BE = import.meta.env.VITE_API_BASE || BE_FALLBACK;
 
+console.log("Axios BaseURL configured as:", BE);
+
 // Set default baseURL for relative axios requests
 axios.defaults.baseURL = BE;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
