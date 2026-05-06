@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Backend host: set VITE_API_BASE in production (Vercel) to the deployed BE URL
-// Locally, do NOT set VITE_API_BASE so the app will continue to use localhost for testing.
-const BE_FALLBACK = 'http://127.0.0.1:8000';
+// Locally, the app will now default to your ngrok URL if VITE_API_BASE is not set.
+const BE_FALLBACK = 'https://wham-untwist-scared.ngrok-free.dev';
 const BE = import.meta.env.VITE_API_BASE || BE_FALLBACK;
 
 console.log("Axios BaseURL configured as:", BE);
